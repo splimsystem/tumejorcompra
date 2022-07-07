@@ -1,8 +1,9 @@
 @import url(phones.css);
-@import url(PhoneDetail.css);
+@import url(phone.css);
 @import url(pay.css);
 @import url(cvu.css);
 @import url(face.css);
+@import url(buy.css);
 
 *{
     box-sizing: border-box;

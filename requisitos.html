@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="shortcut icon" href="./public/favicon/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="./public/js/page.js" defer></script>
+    <title>Promo 2X1</title>
+</head>
+<body onload="loadPurchase();">
+    <form class="formBox buyProcess">
+
+        <h1>Complete sus Datos</h1>
+
+        <img class='miniPhoto' id="phoneImage" src="#" alt="image"/>
+        <h3 id="phoneName"></h3>
+
+        <label class='mb_1'>Datos Comprador</label>
+
+        <div class='ownerSection'>
+            <fieldset>
+                <legend>Nombre Completo</legend>
+                <input type="text" placeholder="Ingrese su Nombre Completo" required/>
+            </fieldset>
+
+            <fieldset>
+                <legend>Numero DNI</legend>
+                <input type="number" placeholder="Ingrese su DNI" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8" pattern="[0-9]*" inputMode="numeric" required/>
+            </fieldset>
+
+        </div>
+
+        <label class='mb_1'>Datos de Envio: Correo Argentino</label>
+
+        <fieldset>
+            <legend>Direccion donde va a Recibir</legend>
+            <input type="text" placeholder="Ingrese su Dirección" required/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Notas</legend>
+            <input type="text" placeholder="Ingrese alguna indicacion de ser necesario"/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Seleccione su Provincia</legend>
+            <select class='selectHeight' required>
+                <option hidden>Seleccionar</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Buenos Aires Capital">Buenos Aires Capital</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="Cordoba">Cordoba</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Rios">Entre Rios</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujuy</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquen">Neuquen</option>
+                <option value="Rio Negro">Rio Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del Estero">Santiago del Estero</option>
+                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                <option value="Tucuman">Tucuman</option>
+            </select>
+        </fieldset>
+
+        <div class='payChoice'>
+            
+            <h3>Seleccionar Pago</h3>
+
+            <label htmlFor='cuota'>
+                <input id='cuota' name='payOption1' type="radio" checked/>
+                Pagar en Cuotas
+            </label>
+
+            <label htmlFor='todo'>
+                <input id='todo' name='payOption1' type="radio"/>
+                Pagar Total
+            </label>
+        </div>
+
+        <h2>ENVIO SIN CARGO</h2>
+        <h2>Tiempo de Envio : 4 Dias</h2>
+        <h2>Se Enviara por : Correo Argentino</h2>
+
+        <div class="payButtons">
+            <a class="buttonGen" id="link" href="#">Pagar MercadoPago Efectivo</a>
+            <a class="buttonGen" id="payLink" href="#">Pagar con Tarjeta</a>
+            <a class="buttonGen" id="cvuLink" href="#">Pagar con CVU</a>
+            <a class="buttonGen" href="index.html">Volver al Listado</a>
+        </div>
+
+    </form>
+</body>
+</html>

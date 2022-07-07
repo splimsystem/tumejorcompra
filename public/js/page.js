@@ -185,8 +185,6 @@ function loadPhone(){
     let rom = document.querySelector("#rom")
     let image = document.querySelector("#image")
     let link = document.querySelector("#link")
-    let cvuLink = document.querySelector("#cvuLink")
-    let payLink = document.querySelector("#payLink")
 
     name.innerHTML = phone.name
     price.innerHTML = "$"+phone.price
@@ -196,6 +194,25 @@ function loadPhone(){
     ram.innerHTML = "Memoria RAM : "+phone.ram+"GB"
     rom.innerHTML = "Memoria : "+phone.rom+"GB"
     image.src = "./public/img/phones/"+phone.image
+    link.href = "requisitos.html?"+phone.id
+}
+
+function loadPurchase(){
+
+    const param = (window.location).toString().split('html?').pop()
+
+    const phone = phones.find(phone => phone.id === param)
+
+    let phoneImage = document.querySelector("#phoneImage")
+    let phoneName = document.querySelector("#phoneName")
+
+    let link = document.querySelector("#link")
+    let cvuLink = document.querySelector("#cvuLink")
+    let payLink = document.querySelector("#payLink")
+
+    phoneImage.src = "./public/img/phones/"+phone.image
+    phoneName.innerHTML = phone.name
+
     link.href = phone.link
     cvuLink.href = "cvu.html?"+phone.id
     payLink.href = "pay.html?"+phone.id
