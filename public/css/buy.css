@@ -51,6 +51,7 @@
 .payButtons a{
     text-decoration: none;
     color: white;
+    white-space: normal !important;
 }
 
 .payButtons a:nth-of-type(1){
