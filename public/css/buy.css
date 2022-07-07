@@ -54,6 +54,14 @@
     white-space: normal !important;
 }
 
+.attmsg{
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+}
+
 .payButtons a:nth-of-type(1){
     background-color: #20d18b !important;
 }
